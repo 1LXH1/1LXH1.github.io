@@ -22,8 +22,8 @@ class Particle {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
     this.size = Math.random() * 2.5 + 1;
-    this.speedX = (Math.random() - 0.5) * 1.5;
-    this.speedY = (Math.random() - 0.5) * 1.5;
+    this.speedX = (Math.random() - 0.5) * 0.8;
+    this.speedY = (Math.random() - 0.5) * 0.8;
     this.opacity = Math.random() * 0.6 + 0.2;
     this.originalOpacity = this.opacity;
   }
@@ -45,8 +45,8 @@ class Particle {
 
     if (distance < mouseRadius) {
       const angle = Math.atan2(dy, dx);
-      this.speedX = -Math.cos(angle) * 5;
-      this.speedY = -Math.sin(angle) * 5;
+      this.speedX = -Math.cos(angle) * 3;
+      this.speedY = -Math.sin(angle) * 3;
       this.opacity = 0.8;
     } else {
       this.opacity = this.originalOpacity;
@@ -75,9 +75,9 @@ initParticles();
 
 // 绘制连接线
 function drawConnections() {
-  ctx.globalAlpha = 0.1;
+  ctx.globalAlpha = 0.15;
   ctx.strokeStyle = '#3b82f6';
-  ctx.lineWidth = 1;
+  ctx.lineWidth = 2;
 
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
